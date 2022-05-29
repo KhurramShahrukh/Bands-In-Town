@@ -18,11 +18,11 @@ function Events() {
 
   const artistName =
     searchedArtistName === ""
-      ? localStorage.getItem("searchValue") ?? ""
+      ? sessionStorage.getItem("searchValue") ?? ""
       : searchedArtistName;
   // get the artist name from the app context state
-  // In case of page refresh, get from artist name from localStorage to persist data on page refresh
-  // If localStorage value is null or undefined set value to empty string to avoid null value error
+  // In case of page refresh, get from artist name from sessionStorage to persist data on page refresh
+  // If sessionStorage value is null or undefined set value to empty string to avoid null value error
 
   // Local States
   const [artistsData, setartistsData] = React.useState([]); // state for all artists data
@@ -59,7 +59,7 @@ function Events() {
       searchEventsService(artistName)
         .then((res) => {
           setEventsData(res.data);
-          setEventsCount(res.data.length);
+          setEventsCount(res.data?.length);
           setEventsCardLoading(false);
         })
         .catch((err) => {

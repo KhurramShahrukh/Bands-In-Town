@@ -14,7 +14,7 @@ function Search() {
 
   // Local States
   const [searchValue, setSearchValue] = React.useState(
-    localStorage.getItem("searchValue") || "" // Initialize searchValue to localStorage value or empty string
+    sessionStorage.getItem("searchValue") || "" // Initialize searchValue to sessionStorage value or empty string
   );
   const [artistsData, setartistsData] = React.useState([]); // state for all artists data
   const [artistsDataLoading, setArtistsDataLoading] = React.useState(false); // State to track loading status of artists data
@@ -25,7 +25,7 @@ function Search() {
       resetStates(); // Reset states function called if search value is empty
     }
     setSearchValue(event.target.value);
-    localStorage.setItem("searchValue", event.target.value); // store value in localStorage to persist the search value on refresh
+    sessionStorage.setItem("searchValue", event.target.value); // store value in sessionStorage to persist the search value on refresh
   };
 
   const resetStates = () => {
@@ -55,7 +55,7 @@ function Search() {
 
   useEffect(() => {
     // this is called when the component is mounted
-    const searchArtistState = localStorage.getItem("searchValue"); // get the search value from localStorage
+    const searchArtistState = sessionStorage.getItem("searchValue"); // get the search value from sessionStorage
     if (searchArtistState?.length > 0) {
       // if the search value is not empty
       setSearchedArtistName(searchArtistState); // update previous searched value
@@ -95,11 +95,11 @@ function Search() {
           {artistsDataLoading ? (
             <Text className="text-style">{`Fetching results for "${searchValue}"...`}</Text>
           ) : artistsData[0] === "" ? (
-            <Text className="text-style">{`No Results found for "${searchedArtistName}"`}</Text>
+            <Text className="text-style">{`No Result found for "${searchedArtistName}"`}</Text>
           ) : (
             searchedArtistName?.length > 0 &&
             apiErrorMsg === "" && (
-              <Text className="text-style">{`${artistsData?.length} Results found for "${searchedArtistName}"`}</Text>
+              <Text className="text-style">{`${artistsData?.length} Result(s) found for "${searchedArtistName}"`}</Text>
             )
           )}
           {!artistsDataLoading && apiErrorMsg !== "" && (
