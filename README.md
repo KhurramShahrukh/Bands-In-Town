@@ -1,3 +1,7 @@
+## Project Description
+
+Bands in Town is a web application where the user can search for their favourite bands and artists and also view the upcoming events of the repective artists. So Now, you don't have to worry about missing any of those concerts. Cheers!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
