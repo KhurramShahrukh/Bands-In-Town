@@ -95,9 +95,9 @@ function Events() {
         </Row>
       </Container>
       {eventsCardLoading ? (
-        <Text>{`Fetching upcoming events...`}</Text>
+        <Text>{`Fetching upcoming event(s)...`}</Text>
       ) : (
-        <Text>{`${eventsCount} upcoming events`}</Text>
+        <Text>{`${eventsCount} upcoming event(s)`}</Text>
       )}
       <Container className="container container-events" fluid>
         <Row className="row" justify="start" gutterWidth={10}>
