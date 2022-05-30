@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-grid-system";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+import Tooltip from "react-simple-tooltip";
 
 function EventCard(props) {
   const history = useHistory(); // useHistory hook to get history object from react router dom
@@ -30,28 +31,40 @@ function EventCard(props) {
         <Row className="row-card" align="center">
           <Col className="col-card">
             <Row className="row-inner-1">Country</Row>
-            <Row className="row-inner-2">{country}</Row>
+            <Tooltip
+              color="#f5f5f5"
+              content={country}
+              placement="left"
+              offset="2"
+            >
+              <Row className="row-inner-2">{country}</Row>
+            </Tooltip>
           </Col>
           <Col className="col-card">
             <Row className="row-inner-1">City</Row>
-            <Row className="row-inner-2">{city}</Row>
+
+            <Tooltip color="#f5f5f5" content={city} placement="left" offset="2">
+              <Row className="row-inner-2">{city}</Row>
+            </Tooltip>
           </Col>
         </Row>
         <Row className="row-card" align="center">
           <Col className="col-card">
             <Row className="row-inner-1">Venue</Row>
-            <Row
-              className="row-inner-2"
-              aria-label="Hey tooltip!"
-              data-microtip-position="up"
-              role="tooltip"
-            >
-              {name}
-            </Row>
+            <Tooltip color="#f5f5f5" content={name} placement="left" offset="2">
+              <Row className="row-inner-2">{name}</Row>
+            </Tooltip>
           </Col>
           <Col className="col-card">
             <Row className="row-inner-1">Date</Row>
-            <Row className="row-inner-2">{dateState}</Row>
+            <Tooltip
+              color="#f5f5f5"
+              content={dateState}
+              placement="left"
+              offset="2"
+            >
+              <Row className="row-inner-2">{dateState}</Row>
+            </Tooltip>
           </Col>
         </Row>
       </Container>

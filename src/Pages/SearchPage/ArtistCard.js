@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+import Tooltip from "react-simple-tooltip";
 
 function ArtistCard(props) {
   const history = useHistory();
@@ -20,7 +21,9 @@ function ArtistCard(props) {
     <Wrapper onClick={artistCardClickHandler}>
       <img src={artist?.image_url} className="img-style" />
       <div className="card-details">
-        <div className="artist-name">{artist?.name}</div>
+        <Tooltip color="#f5f5f5" content={artist?.name}>
+          <div className="artist-name">{artist?.name}</div>
+        </Tooltip>
         <div className="fb-url" onClick={fbLinkClickHandler}>
           {fbUrl}
         </div>
@@ -69,9 +72,8 @@ const Wrapper = styled.div`
     .artist-name {
       font-size: 16px;
       font-weight: 600;
-      margin-bottom: 5px;
       width: 100%;
-      height: 15px;
+      height: 20px;
       text-overflow: ellipsis;
       overflow: hidden;
       word-break: break-all;
