@@ -21,7 +21,7 @@ function ArtistCard(props) {
     <Wrapper onClick={artistCardClickHandler}>
       <img src={artist?.image_url} className="img-style" />
       <div className="card-details">
-        <Tooltip color="#f5f5f5" content={artist?.name}>
+        <Tooltip color="#f5f5f5" content={artist?.name || ""}>
           <div className="artist-name">{artist?.name}</div>
         </Tooltip>
         <div className="fb-url" onClick={fbLinkClickHandler}>
